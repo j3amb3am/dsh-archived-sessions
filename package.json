@@ -1,0 +1,34 @@
+{
+  "name": "dsh-archived-sessions",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness (DSH) plugin — list, restore, and permanently delete archived sessions from the Web UI.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QQQW114/dsh-archived-sessions.git"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "sessions",
+    "archive"
+  ],
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  }
+}
