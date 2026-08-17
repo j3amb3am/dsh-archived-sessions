@@ -56,29 +56,21 @@ dsh-archived-sessions/
 
 ## 安装
 
-### 方式 A：手动（最简单）
+```powershell
+dsh plugin --profile web add @qqqw114/dsh-archived-sessions
+```
 
-1. 本地开发安装（推荐）：
+然后编辑 `~/.dsh/profiles/web/cordis.patch.yml`，加入：
 
-   ```powershell
-   dsh plugin --profile web add link:../../../Desktop/other/dsh/dsh-archived-sessions
-   ```
+```yaml
+- insert:
+    - id: archived-sessions
+      name: dsh-archived-sessions
+```
 
-2. 编辑 `~/.dsh/profiles/web/cordis.patch.yml`，加入：
+重启 DSH。
 
-   ```yaml
-   - insert:
-       - id: archived-sessions
-         name: dsh-archived-sessions
-   ```
-
-3. 重启 DSH。
-
-> 注意：`cordis.patch.yml` 是 profile 的用户补丁层；`cordis.yml` 顶部注释明确写着 "Edit cordis.patch.yml, not this file."。插件必须能被 `require.resolve('<name>/package.json')` 从 `ctx.baseUrl`（`profiles/web/`）解析到，所以放在 `profiles/node_modules` 里。
-
-### 方式 B：接入 pnpm workspace
-
-把本目录加进 profile 的 `pnpm-workspace.yaml` 的 `packages` 列表并 `pnpm install`，再用上面同样的 patch 条目挂载。
+> 注意：`cordis.patch.yml` 是 profile 的用户补丁层；`cordis.yml` 顶部注释明确写着 "Edit cordis.patch.yml, not this file."。
 
 ## 运行时依赖（宿主侧服务）
 
@@ -90,7 +82,7 @@ dsh-archived-sessions/
 
 ## 发布
 
-包名已使用社区命名 `dsh-archived-sessions`。发布到 npm 前请确认 `package.json` 的 `repository` 指向本仓库；GitHub 仓库需打上 [`dsh-plugin`](https://github.com/topics/dsh-plugin) topic。
+已发布到 npm：`@qqqw114/dsh-archived-sessions`。GitHub 仓库已打上 [`dsh-plugin`](https://github.com/topics/dsh-plugin) topic。
 
 ## License
 
